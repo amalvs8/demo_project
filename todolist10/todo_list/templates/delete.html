@@ -1,0 +1,9 @@
+{% extends "base2.html" %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <h6 class="card=title">Are you sure you want to mark this task as completed?</h6>
+    <input type="submit">
+</form>
+{% endblock %}

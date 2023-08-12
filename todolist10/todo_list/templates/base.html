@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+    body
+    {
+    font-family:calibri;
+    }
+
+    .banner
+    {
+    top:0;
+    background-color: rgb(50,50,50);
+    width: 100%;
+    height: 100px;
+    margin-bottom:20px;
+    }
+
+    .banner-text
+    {
+    margin-left:5%;
+    font-size:30px;
+    color:white;
+    padding:45px;
+    }
+
+    .tab
+    {
+    margin-top:20px;
+    margin-bottom:20px;
+    border-radius:3px;
+    background-color:rgb(100,100,100);
+    height:50px;
+    padding:8px;
+    }
+    </style>
+<body>
+
+<div class="banner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner-text">
+                    <h2><b>To-Do List</b></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tab">
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 style="margin-left:2%; color:white;"><b>New Task</b></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="p-3 shadow">
+        {% block body1 %}
+        {% endblock %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="tab">
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 style="margin-left:2%; color:white;"><b>Task to be completed</b></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% block body2 %}
+        {% endblock %}
+    </div>
+</div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block body1 %}
+<div>
+<h4><a href="credentials/register">Register</a></h4>
+</div>
+<form method="POST">
+    {% csrf_token %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <h5>Task</h5>
+            <input class="form-control" type="text" name="task" placeholder="Task Name"><br>
+            <h5>Priority</h5>
+            <input class="form-control" type="text" name="priority" placeholder="Priority"><br>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <h5>Date</h5>
+            <input class="form-control" type="date" name="date" placeholder="Date"><br>
+            <h5>Notes</h5>
+            <textarea cols="40" row="10" class="form-control" type="text" name="notes" placeholder="Optional"></textarea>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit">
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body2 %}
+{% for i in task1 %}
+    <div class="col-md-4">
+        <div class="p-3 shadow">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card=title">{{i.priority}}, {{i.task}}</h5>
+                    <h6 class="card=title">{{i.date}}</h6>
+                    <h6 class="card=title">{{i.notes}}</h6><br>
+                    <h6><a style="color:green;" href="{% url 'todo_app:update' i.id %}">Update</a></h6>
+                    <h6><a style="color:red;" href="{% url 'todo_app:delete' i.id %}">Mark as completed</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
