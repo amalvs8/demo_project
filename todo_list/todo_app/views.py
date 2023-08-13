@@ -7,7 +7,7 @@ from .forms import TodoForms
 # Create your views here.
 
 def add(request):
-    task1 = Task.objects.all()
+    task1 = Task.objects.all().order_by('priority')
     if request.method == 'POST':
         name = request.POST.get('task', '')
         priority = request.POST.get('priority', '')
